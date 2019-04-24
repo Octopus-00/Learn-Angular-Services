@@ -1,0 +1,13 @@
+<div class="container">
+  <input type="text" id="city" [(ngModel)]="cityName">
+  <button type="button" (click)="getWeatherByCity()">Search for a city</button>
+
+  <div *ngIf="city">
+    <h2>{{city.name}}</h2>
+    <p>{{city.main.temp}}</p>
+    <div *ngFor="let forecast of city.weather">
+      <p>{{forecast.main}} - {{forecast.description}}</p>
+      <img [src]="'http://openweathermap.org/img/w/' + forecast.icon + '.png'" alt="">
+    </div>
+  </div>
+</div>

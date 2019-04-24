@@ -21,4 +21,9 @@ export class WeatherService {
     return this.http.get(uri);
   }
 
+  getWeatherByCity(city: string) {
+    const uri = 'http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + this.apiKey;
+    return this.http.get(uri);
+  }
+
 }
