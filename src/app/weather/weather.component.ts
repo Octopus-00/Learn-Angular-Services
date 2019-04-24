@@ -17,7 +17,8 @@ export class WeatherComponent implements OnInit {
 
   ngOnInit() {
     // this.getWeather();
-    this.getWeatherPromise();
+    // this.getWeatherPromise();
+    this.weatherService.getHomeCity().subscribe((res) => console.log(res));
   }
 
   getWeather() {
