@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {LoggingService} from './shared/logging.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Learn-Angular-Services';
+  title = 'Weather App';
+  author = 'Onur Dogan';
+  compagny = 'Packt Publishng';
+
+  constructor(private loggingService: LoggingService) {
+  }
+
+  onClick(message: string) {
+    this.loggingService.log(message);
+  }
+
 }
