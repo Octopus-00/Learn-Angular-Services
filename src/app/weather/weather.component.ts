@@ -20,7 +20,9 @@ export class WeatherComponent implements OnInit {
   }
 
   getWeather() {
-    this.weather = this.weatherService.getWeather();
+    this.weatherService.getWeather().subscribe(
+      (data) => this.weather = data
+    );
   }
 
   setHomeCity(event: Weather) {
