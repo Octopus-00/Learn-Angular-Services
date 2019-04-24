@@ -9,6 +9,12 @@ import {catchError, map, tap} from 'rxjs/operators';
 })
 export class WeatherService {
 
+  apiKey = 'cb4f806781297c4228e13fb0744afa23';
+  baseUri = 'http://api.openweathermap.org/data/2.5/find?&cnt=10&units=metric&appid=';
+
+  lat = 51.5285582;
+  lon = -0.2416808;
+
   constructor() {
   }
 
