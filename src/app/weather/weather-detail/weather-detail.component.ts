@@ -17,4 +17,9 @@ export class WeatherDetailComponent implements OnInit {
   ngOnInit() {
   }
 
+  setHome() {
+    this.selectedCity.home = true;
+    this.homeCity.emit(this.selectedCity);
+  }
+
 }

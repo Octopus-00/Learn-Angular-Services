@@ -10,6 +10,7 @@ import {WeatherService} from '../shared/weather.service';
 export class WeatherComponent implements OnInit {
 
   weather: Weather[];
+  selectedCity: Weather;
 
   constructor(private weatherService: WeatherService) {
   }
@@ -20,6 +21,10 @@ export class WeatherComponent implements OnInit {
 
   getWeather() {
     this.weather = this.weatherService.getWeather();
+  }
+
+  setHomeCity(event: Weather) {
+    console.log(event);
   }
 
 }
