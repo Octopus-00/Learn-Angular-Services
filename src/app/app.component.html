@@ -1,3 +1,4 @@
-
-<button type="button" (click)="onClick('Button clicked')">Click</button>
+<div *ngFor="let log of logs">
+  <p>{{log.message}} at {{log.date | date}}</p>
+</div>
 <router-outlet></router-outlet>
