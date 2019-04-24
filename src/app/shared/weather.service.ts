@@ -35,4 +35,14 @@ export class WeatherService {
     return of(weather.city + ' added');
   }
 
+  deleteWeather(weather: Weather): Observable<string> {
+    if (WEATHER.includes(weather)) {
+      WEATHER.forEach((city, i) => {
+        if (city === weather) {
+          WEATHER.splice(i, 1);
+        }
+      });
+      return of(weather.city + ' deleted');
+    }
+  }
 }

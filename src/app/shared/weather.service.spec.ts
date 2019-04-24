@@ -77,4 +77,29 @@ describe('WeatherService', () => {
       expect(data).toEqual('Mumbai added');
     });
   });
+
+  it('#deleteWeather should be an  object', () => {
+    const mockWeather = new Weather();
+    mockWeather.id = 1;
+    mockWeather.city = 'London';
+    mockWeather.temp = 10;
+    mockWeather.forecast = 'Overcast with showers';
+    weatherService = TestBed.get(WeatherService);
+    const spy = spyOn(weatherService, 'deleteWeather').and.returnValue(of(mockWeather.city + ' deleted'));
+    weatherService.deleteWeather(mockWeather).subscribe(data => {
+      expect(data).toEqual('London deleted');
+    });
+  });
+
+  it('#deleteWeather should be called', () => {
+    const mockWeather = new Weather();
+    mockWeather.id = 4;
+    mockWeather.city = 'Mumbai';
+    mockWeather.temp = 25;
+    mockWeather.forecast = 'Sunny';
+    weatherService = TestBed.get(WeatherService);
+    const spy = spyOn(weatherService, 'deleteWeather').and.callThrough();
+    weatherService.deleteWeather(mockWeather);
+    expect(spy).toHaveBeenCalled();
+  });
 });
