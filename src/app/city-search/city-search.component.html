@@ -1,7 +1,10 @@
 <div class="container">
-  <input type="text" id="city" [(ngModel)]="cityName">
-  <button type="button" (click)="getWeatherByCity()">Search for a city</button>
-
+  <form class="form" #searchForm="ngForm">
+    <mat-form-field>
+      <input matInput name="city" type="text" id="city" [(ngModel)]="cityName">
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="button" (click)="getWeatherByCity(); searchForm.resetForm()">Search for a city</button>
+  </form>
   <div *ngIf="city">
     <h2>{{city.name}}</h2>
     <p>{{city.main.temp}}</p>

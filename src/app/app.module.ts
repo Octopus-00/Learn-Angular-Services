@@ -7,8 +7,10 @@ import {LoggingService} from './shared/logging.service';
 import {WeatherComponent} from './weather/weather.component';
 import {WeatherDetailComponent} from './weather/weather-detail/weather-detail.component';
 import {HttpClientModule} from '@angular/common/http';
-import { CitySearchComponent } from './city-search/city-search.component';
+import {CitySearchComponent} from './city-search/city-search.component';
 import {FormsModule} from '@angular/forms';
+import {MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,12 @@ import {FormsModule} from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    BrowserAnimationsModule
   ],
   providers: [LoggingService],
   bootstrap: [AppComponent]
