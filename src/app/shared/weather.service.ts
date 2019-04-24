@@ -15,6 +15,11 @@ export class WeatherService {
     return of(WEATHER);
   }
 
+  getWeatherPromise() {
+    const weatherProm = of(WEATHER).toPromise();
+    return weatherProm;
+  }
+
   setWeather(weather: Weather) {
     WEATHER.push(weather);
   }
