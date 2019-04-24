@@ -7,7 +7,7 @@ import {LoggingService} from './shared/logging.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'Weather App';
+  title = 'Welcome to Weather App!';
   author = 'Onur Dogan';
   compagny = 'Packt Publishng';
 
