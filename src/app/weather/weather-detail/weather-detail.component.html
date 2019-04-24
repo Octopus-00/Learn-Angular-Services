@@ -1,3 +1,6 @@
-<p>
-  weather-detail works!
-</p>
+<div class="container" *ngIf="selectedCity">
+  <h2>{{selectedCity.city}}</h2>
+  <p>{{selectedCity.temp}}</p>
+  <p>{{selectedCity.forecast}}</p>
+  <button (click)="setHome()">Set Home</button>
+</div>
