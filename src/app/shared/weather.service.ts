@@ -1,5 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Weather} from './weater.model';
+import {Observable, of} from 'rxjs';
+import {WEATHER} from './mock-weater';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +27,12 @@ export class WeatherService {
   getWeatherByCity(city: string) {
     const uri = 'http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + this.apiKey;
     return this.http.get(uri);
+  }
+
+  addWeather(weather: Weather): Observable<string> {
+    weather.id = WEATHER.length + 1;
+    WEATHER.push(weather);
+    return of(weather.city + ' added');
   }
 
 }

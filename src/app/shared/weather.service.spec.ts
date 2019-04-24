@@ -4,6 +4,7 @@ import {WeatherService} from './weather.service';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import any = jasmine.any;
 import {of} from 'rxjs';
+import {Weather} from './weater.model';
 
 let weatherService: WeatherService;
 let httpClinetSpy: { get: jasmine.Spy };
@@ -50,5 +51,30 @@ describe('WeatherService', () => {
         expect(data).toEqual(expectedResult);
       }
     );
+  });
+
+  it('#addWeather should be called', () => {
+    const mockWeather = new Weather();
+    mockWeather.id = 4;
+    mockWeather.city = 'Mumbai';
+    mockWeather.temp = 25;
+    mockWeather.forecast = 'Sunny';
+    weatherService = TestBed.get(WeatherService);
+    const spy = spyOn(weatherService, 'addWeather').and.callThrough();
+    weatherService.addWeather(mockWeather).subscribe();
+    expect(spy).toHaveBeenCalled();
+  });
+
+  it('#addWeather should add new object', () => {
+    const mockWeather = new Weather();
+    mockWeather.id = 4;
+    mockWeather.city = 'Mumbai';
+    mockWeather.temp = 25;
+    mockWeather.forecast = 'Sunny';
+    weatherService = TestBed.get(WeatherService);
+    const spy = spyOn(weatherService, 'addWeather').and.returnValue(of(mockWeather.city + ' added'));
+    weatherService.addWeather(mockWeather).subscribe(data => {
+      expect(data).toEqual('Mumbai added');
+    });
   });
 });
