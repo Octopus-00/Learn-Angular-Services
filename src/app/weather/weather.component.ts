@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Weather} from '../shared/weater.model';
 import {WeatherService} from '../shared/weather.service';
+import {WeatherOwn} from '../shared/weaterown.model';
 
 @Component({
   selector: 'app-weather',
@@ -9,31 +10,22 @@ import {WeatherService} from '../shared/weather.service';
 })
 export class WeatherComponent implements OnInit {
 
-  weather: Weather[];
+  weather: WeatherOwn[];
   selectedCity: Weather;
 
   constructor(private weatherService: WeatherService) {
   }
 
   ngOnInit() {
-    // this.getWeather();
-    // this.getWeatherPromise();
-    this.weatherService.getHomeCity().subscribe((res) => console.log(res));
+    this.getWeather();
   }
 
   getWeather() {
     this.weatherService.getWeather().subscribe(
-      (data) => this.weather = data
+      (data: any) => this.weather = data.list
     );
   }
 
-  getWeatherPromise() {
-    this.weatherService.getWeatherPromise().then((data) => {
-      this.weather = data;
-    }).catch((error) => {
-      console.log(error);
-    });
-  }
 
   setHomeCity(event: Weather) {
     console.log(event);

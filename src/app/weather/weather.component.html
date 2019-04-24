@@ -1,7 +1,9 @@
 <div class="weather" *ngFor="let city of weather">
-  <h2>{{city.city}}</h2>
-  <h2>{{city.temp}}</h2>
-  <button (click)="selectedCity = city">More info</button>
-  <hr>
+  <h2>{{city.name}}</h2>
+  <h2>{{city.main.temp}}</h2>
+  <div *ngFor="let forecast of city.weather">
+    <p>{{forecast.main}} - {{forecast.description}}</p>
+    <img [src]="'http://openweathermap.org/img/w/' + forecast.icon + '.png'" alt="">
+  </div>
 </div>
 <app-weather-detail [selectedCity]="selectedCity" (homeCity)="setHomeCity($event)"></app-weather-detail>
