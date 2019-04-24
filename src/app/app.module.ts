@@ -1,11 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
 import {LoggingService} from './shared/logging.service';
-import { WeatherComponent } from './weather/weather.component';
-import { WeatherDetailComponent } from './weather/weather-detail/weather-detail.component';
+import {WeatherComponent} from './weather/weather.component';
+import {WeatherDetailComponent} from './weather/weather-detail/weather-detail.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,9 +16,11 @@ import { WeatherDetailComponent } from './weather/weather-detail/weather-detail.
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [LoggingService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
